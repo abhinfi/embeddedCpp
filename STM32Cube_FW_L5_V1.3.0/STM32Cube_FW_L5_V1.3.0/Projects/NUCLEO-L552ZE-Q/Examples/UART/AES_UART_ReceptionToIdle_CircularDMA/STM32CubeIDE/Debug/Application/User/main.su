@@ -1,0 +1,22 @@
+main.cpp:94:5:int main()	24	static
+main.cpp:173:6:void SystemClock_Config()	104	static
+main.cpp:221:13:void MX_ICACHE_Init()	8	static
+main.cpp:252:13:void MX_LPUART1_UART_Init()	8	static
+main.cpp:298:13:void MX_DMA_Init()	16	static
+main.cpp:317:13:void MX_GPIO_Init()	16	static
+main.cpp:332:13:void EXTI13_IRQHandler_Config()	32	static
+main.cpp:359:6:void HAL_GPIO_EXTI_Falling_Callback(uint16_t)	16	static
+main.cpp:376:6:void PrintInfo(UART_HandleTypeDef*, uint8_t*, uint16_t)	24	static
+main.cpp:388:6:void StartReception()	8	static
+main.cpp:421:6:void UserDataTreatment(UART_HandleTypeDef*, uint8_t*, uint16_t)	32	static
+main.cpp:447:6:void SendUserData(UART_HandleTypeDef*)	16	static
+main.cpp:456:6:void SendUserData(UART_HandleTypeDef*, uint8_t*, uint8_t)	32	static
+main.cpp:473:6:void HAL_UARTEx_RxEventCallback(UART_HandleTypeDef*, uint16_t)	24	static
+main.cpp:538:6:void Error_Handler()	8	static
+ring_buffer.hpp:32:14:RingBuffer<T, size>::RingBuffer() [with T = unsigned char; short unsigned int size = 16]	16	static
+ring_buffer.hpp:75:10:bool RingBuffer<T, size>::isEmpty() const [with T = unsigned char; short unsigned int size = 16]	16	static
+ring_buffer.hpp:56:16:RingBuffer<T, size>::value_type RingBuffer<T, size>::get() [with T = unsigned char; short unsigned int size = 16]	24	static
+ring_buffer.hpp:39:10:void RingBuffer<T, size>::put(RingBuffer<T, size>::value_type) [with T = unsigned char; short unsigned int size = 16]	16	static
+ring_buffer.hpp:80:10:bool RingBuffer<T, size>::isFull() const [with T = unsigned char; short unsigned int size = 16]	16	static
+main.cpp:546:1:void __static_initialization_and_destruction_0(int, int)	16	static
+main.cpp:546:1:cpp)	8	static

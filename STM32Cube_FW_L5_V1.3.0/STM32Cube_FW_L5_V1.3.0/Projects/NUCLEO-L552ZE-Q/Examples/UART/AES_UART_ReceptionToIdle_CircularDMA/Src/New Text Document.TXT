@@ -1,0 +1,16 @@
+#include "mbedtls/aes.h"
+
+class AesHandle
+{
+private:
+    mbedtls_aes_context aes_ctx;
+    //IV 128bits
+    unsigned char IV[16] = {'a','b','c','d','e','f','g','h',1,2,3,4,5,6,7,8};
+    //max key size of 256bit
+    unsigned char key[16] = {'m', 'y', 'k', 'e', 'y', 's', 'e', 'c', 'r', 'e', 't','.', '.','.', '.','.'};
+    //128bit + 128bit
+    uint8_t buffer[32];
+public:
+    AesHandle(void);
+    uint8 encrypt(const unsigned char* input, const unsigned char* output);
+};
