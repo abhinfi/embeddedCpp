@@ -9,8 +9,6 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include mbedtls/library/subdir.mk
--include mbedtls/include/mbedtls/subdir.mk
 -include Drivers/STM32L5xx_HAL_Driver/subdir.mk
 -include Drivers/CMSIS/subdir.mk
 -include Drivers/BSP/STM32L5xx_Nucleo/subdir.mk
@@ -53,34 +51,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := AES_UART_ReceptionToIdle_CircularDMA
+BUILD_ARTIFACT_NAME := UART_ReceptionToIdle_CircularDMA
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-AES_UART_ReceptionToIdle_CircularDMA.elf \
+UART_ReceptionToIdle_CircularDMA.elf \
 
 MAP_FILES += \
-AES_UART_ReceptionToIdle_CircularDMA.map \
+UART_ReceptionToIdle_CircularDMA.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-AES_UART_ReceptionToIdle_CircularDMA.list \
+UART_ReceptionToIdle_CircularDMA.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: AES_UART_ReceptionToIdle_CircularDMA.elf secondary-outputs
+main-build: UART_ReceptionToIdle_CircularDMA.elf secondary-outputs
 
 # Tool invocations
-AES_UART_ReceptionToIdle_CircularDMA.elf AES_UART_ReceptionToIdle_CircularDMA.map: $(OBJS) $(USER_OBJS) D:\youtube_channel\embeddedCpp\STM32Cube_FW_L5_V1.3.0\STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\AES_UART_ReceptionToIdle_CircularDMA\STM32CubeIDE\STM32L552ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-g++ -o "AES_UART_ReceptionToIdle_CircularDMA.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"D:\youtube_channel\embeddedCpp\STM32Cube_FW_L5_V1.3.0\STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\AES_UART_ReceptionToIdle_CircularDMA\STM32CubeIDE\STM32L552ZETX_FLASH.ld" -Wl,-Map="AES_UART_ReceptionToIdle_CircularDMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
+UART_ReceptionToIdle_CircularDMA.elf UART_ReceptionToIdle_CircularDMA.map: $(OBJS) $(USER_OBJS) D:\youtube_channel\embeddedCpp\STM32Cube_FW_L5_V1.3.0\STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\UART_ReceptionToIdle_CircularDMA\STM32CubeIDE\STM32L552ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-g++ -o "UART_ReceptionToIdle_CircularDMA.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m33 -T"D:\youtube_channel\embeddedCpp\STM32Cube_FW_L5_V1.3.0\STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\UART_ReceptionToIdle_CircularDMA\STM32CubeIDE\STM32L552ZETX_FLASH.ld" -Wl,-Map="UART_ReceptionToIdle_CircularDMA.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv5-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -lstdc++ -lsupc++ -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -89,14 +87,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-AES_UART_ReceptionToIdle_CircularDMA.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "AES_UART_ReceptionToIdle_CircularDMA.list"
+UART_ReceptionToIdle_CircularDMA.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "UART_ReceptionToIdle_CircularDMA.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) AES_UART_ReceptionToIdle_CircularDMA.elf AES_UART_ReceptionToIdle_CircularDMA.list AES_UART_ReceptionToIdle_CircularDMA.map default.size.stdout
+	-$(RM) UART_ReceptionToIdle_CircularDMA.elf UART_ReceptionToIdle_CircularDMA.list UART_ReceptionToIdle_CircularDMA.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)

@@ -51,12 +51,12 @@
 		<link>
 			<name>Application/User/noncopyable.hpp</name>
 			<type>1</type>
-			<location>E:/software/ST/video/STM32Cube_FW_L5_V1.3.0/Projects/NUCLEO-L552ZE-Q/Examples/UART/UART_ReceptionToIdle_CircularDMA/Src/noncopyable.hpp</location>
+			<location>D:/youtube_channel/embeddedCpp/STM32Cube_FW_L5_V1.3.0/STM32Cube_FW_L5_V1.3.0/Projects/NUCLEO-L552ZE-Q/Examples/UART/UART_ReceptionToIdle_CircularDMA/Src/noncopyable.hpp</location>
 		</link>
 		<link>
 			<name>Application/User/ring_buffer.hpp</name>
 			<type>1</type>
-			<location>E:/software/ST/video/STM32Cube_FW_L5_V1.3.0/Projects/NUCLEO-L552ZE-Q/Examples/UART/UART_ReceptionToIdle_CircularDMA/Src/ring_buffer.hpp</location>
+			<location>D:/youtube_channel/embeddedCpp/STM32Cube_FW_L5_V1.3.0/STM32Cube_FW_L5_V1.3.0/Projects/NUCLEO-L552ZE-Q/Examples/UART/UART_ReceptionToIdle_CircularDMA/Src/ring_buffer.hpp</location>
 		</link>
 		<link>
 			<name>Application/User/stm32l5xx_hal_msp.c</name>

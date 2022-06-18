@@ -36,6 +36,4 @@ Application/User \
 Drivers/BSP/STM32L5xx_Nucleo \
 Drivers/CMSIS \
 Drivers/STM32L5xx_HAL_Driver \
-mbedtls/include/mbedtls \
-mbedtls/library \
 

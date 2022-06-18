@@ -1,5 +1,4 @@
 "./Application/Startup/startup_stm32l552zetx.o"
-"./Application/User/aes_process.o"
 "./Application/User/main.o"
 "./Application/User/stm32l5xx_hal_msp.o"
 "./Application/User/stm32l5xx_it.o"
@@ -28,6 +27,3 @@
 "./Drivers/STM32L5xx_HAL_Driver/stm32l5xx_hal_tim_ex.o"
 "./Drivers/STM32L5xx_HAL_Driver/stm32l5xx_hal_uart.o"
 "./Drivers/STM32L5xx_HAL_Driver/stm32l5xx_hal_uart_ex.o"
-"./mbedtls/library/aes.o"
-"./mbedtls/library/platform.o"
-"./mbedtls/library/platform_util.o"
