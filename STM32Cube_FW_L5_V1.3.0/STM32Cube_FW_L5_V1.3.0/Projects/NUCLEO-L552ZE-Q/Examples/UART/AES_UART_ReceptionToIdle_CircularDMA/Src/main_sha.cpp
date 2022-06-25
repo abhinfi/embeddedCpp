@@ -53,7 +53,7 @@ DMA_HandleTypeDef hdma_lpuart1_rx;
   * @brief Text strings printed on PC Com port for user information
   */
 
-#define BLOCK_SIZE 16
+#define BLOCK_SIZE 32
 
 uint8_t aTextInfoStart[] = "\r\nUSART Example : Enter characters to fill reception buffers.\r\n";
 uint8_t aTextInfoBufferFull[] = "\r\nRing Buffer : Full.\r\n";
@@ -81,6 +81,7 @@ void StartReception(void);
 void UserDataTreatment(UART_HandleTypeDef *huart, uint8_t* pData, uint16_t Size);
 void SendUserData(UART_HandleTypeDef *huart);
 void SendUserData(UART_HandleTypeDef *huart, uint8_t* data, uint8_t len);
+void calculate_sha(unsigned char* in_data, unsigned char* digest, size_t len);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -140,27 +141,22 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  unsigned char digest[32] = {0};
+  uint8_t size = 0;
   while (1)
   {
     /* USER CODE END WHILE */
-      if(UserSignal)
-      {
-          UserSignal = false;
-          uint8_t size = 0;
-          while(!UartReceiveRingBuffer.isEmpty())
-          {
-              InputMessage[size] = UartReceiveRingBuffer.get();
-              size++;
-              if(size >= BLOCK_SIZE)
-              {
-                  break;
-              }
-          }
-
-          AesHandle::encrypt(InputMessage, EncryptedMessage);
-          //SendUserData(&hlpuart1, OutputData, BLOCK_SIZE);
-          AesHandle::decrypt(EncryptedMessage, DecryptedMessage);
-          SendUserData(&hlpuart1, DecryptedMessage, BLOCK_SIZE);
+	  while(!UartReceiveRingBuffer.isEmpty())
+	  {
+		  InputMessage[size] = UartReceiveRingBuffer.get();
+		  size++;
+		  if(size >= BLOCK_SIZE)
+		  {
+			  calculate_sha(&InputMessage[0], &digest[0], size);
+			  SendUserData(&hlpuart1, digest, size);
+			  size = 0;
+			  break;
+		  }
 	  }
     /* USER CODE BEGIN 3 */
   }
@@ -382,6 +378,13 @@ void PrintInfo(UART_HandleTypeDef *huart, uint8_t *String, uint16_t Size)
   }
 }
 
+void calculate_sha(unsigned char* in_data, unsigned char* digest, size_t len)
+{
+	  SHA<SHA256> sha;
+	  sha.update(in_data, len);
+	  sha.finish(digest);
+}
+
 /**
   * @brief  This function prints user info on PC com port and initiates RX transfer
   * @retval None
@@ -456,7 +459,7 @@ void SendUserData(UART_HandleTypeDef *huart)
 
 void SendUserData(UART_HandleTypeDef *huart, uint8_t* data, uint8_t len)
 {
-    for(uint8_t i = 0; i < 16; i++)
+    for(uint8_t i = 0; i < len; i++)
     {
         while (!(__HAL_UART_GET_FLAG(huart, UART_FLAG_TXE))) {}
         huart->Instance->TDR = data[i];
