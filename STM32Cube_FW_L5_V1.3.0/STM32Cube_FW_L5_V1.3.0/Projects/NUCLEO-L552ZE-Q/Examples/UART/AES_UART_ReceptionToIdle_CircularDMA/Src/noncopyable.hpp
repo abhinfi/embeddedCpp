@@ -1,9 +1,4 @@
-/*
- * noncopyable.hpp
- *
- *  Created on: Feb 27, 2021
- *      Author: ab
- */
+
 namespace util
 {
     class noncopyable

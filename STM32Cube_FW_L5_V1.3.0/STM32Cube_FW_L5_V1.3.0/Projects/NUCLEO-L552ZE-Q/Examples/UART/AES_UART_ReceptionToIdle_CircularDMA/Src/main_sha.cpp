@@ -22,6 +22,7 @@
 #include "ring_buffer.hpp"
 #include "aes_process.hpp"
 #include "sha.hpp"
+#include "test.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */

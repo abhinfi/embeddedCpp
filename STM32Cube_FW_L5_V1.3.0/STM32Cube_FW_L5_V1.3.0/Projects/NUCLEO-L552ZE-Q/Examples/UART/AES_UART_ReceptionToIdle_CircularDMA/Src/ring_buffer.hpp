@@ -1,9 +1,4 @@
-/*
- * ring_buffer.hpp
- *
- *  Created on: Jan 10, 2021
- *      Author: ab
- */
+
 
 #ifndef RING_BUFFER_HPP_
 #define RING_BUFFER_HPP_
