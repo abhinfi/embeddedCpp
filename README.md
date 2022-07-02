@@ -9,3 +9,8 @@ STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\UART_ReceptionToId
 
 ## mbedtls aes
 **Cube IDE project**:STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\AES_UART_ReceptionToIdle_CircularDMA\STM32CubeIDE <br>
+- add main.cpp and exclude main_sha.cpp
+
+## mbedtls sha
+**Cube IDE project**:STM32Cube_FW_L5_V1.3.0\Projects\NUCLEO-L552ZE-Q\Examples\UART\AES_UART_ReceptionToIdle_CircularDMA\STM32CubeIDE <br>
+- add main_sha.cpp and exclude main.cpp
